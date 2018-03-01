@@ -14,9 +14,6 @@ import javax.persistence.Transient;
 
 @Entity(name="DESK_MANAGER")
 public class DeskManager {
-	public enum DeskType{
-		NORMAL,NEW,PREVILIDGED
-	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

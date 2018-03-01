@@ -8,6 +8,8 @@ import org.test.boot.dao.model.Token;
 import org.test.boot.http.model.BaseResponse;
 import org.test.boot.http.model.TokenRequest;
 import org.test.boot.http.model.TokenResponse;
+import org.test.boot.http.model.TokenStatusUpdateRequest;
+import org.test.boot.http.model.TokenStatusUpdateResponse;
 import org.test.boot.http.service.helper.TokenServiceHelper;
 import org.test.boot.http.utils.ResponseUtils;
 
@@ -22,8 +24,16 @@ public class TokenService {
 		Token token = tokenServiceHelper.generateNewToken(tokenRequest);
 		TokenResponse tokenResponse = new TokenResponse();
 		tokenResponse.setTokenId(token.getTokenId());
-		
 		return ResponseUtils.success("data", tokenResponse);
+	}
+	
+	public BaseResponse<TokenStatusUpdateResponse> updateToken(TokenStatusUpdateRequest tokenStatusUpdateRequest) {
+		
+		Token token = tokenServiceHelper.updateTokenStatus(tokenStatusUpdateRequest);
+		TokenStatusUpdateResponse tokenStatusUpdateResponse = new TokenStatusUpdateResponse();
+		tokenStatusUpdateResponse.setToken(token);
+		
+		return ResponseUtils.success("data", tokenStatusUpdateResponse);
 	}
 
 	public BaseResponse<List<Token>> listToken() {

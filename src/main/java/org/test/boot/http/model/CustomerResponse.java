@@ -6,7 +6,6 @@ public class CustomerResponse {
 	
 	private String customerName;
 	
-	
 	private String customerMobile;
 	
 	private CustomerType customerType;

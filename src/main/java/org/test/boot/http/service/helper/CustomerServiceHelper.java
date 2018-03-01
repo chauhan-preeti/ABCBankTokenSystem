@@ -3,10 +3,12 @@ package org.test.boot.http.service.helper;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.test.boot.dao.model.Customer;
 import org.test.boot.dao.repos.CustomerRepository;
 import org.test.boot.http.model.CustomerRequest;
 
+@Component
 public class CustomerServiceHelper {
 
 	@Autowired

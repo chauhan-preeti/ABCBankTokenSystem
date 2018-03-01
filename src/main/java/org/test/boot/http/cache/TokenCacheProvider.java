@@ -62,4 +62,14 @@ public class TokenCacheProvider {
 			tokenCacheMap =null;
 		}
 	}
+	
+	public static void updateCache(Token token) {
+		if( tokenCacheMap != null) {
+			tokenCacheMap.entrySet().forEach(e -> {
+				e.getValue().getTokenQueue().remove(token);
+			});
+			tokenCacheMap.clear();
+			tokenCacheMap =null;
+		}
+	}
 }

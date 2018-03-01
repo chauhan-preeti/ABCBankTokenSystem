@@ -21,6 +21,14 @@ public class Token {
 	@Basic
 	@Column(name = "ISSUE_DATE")
 	private Date issueDate;
+	
+	@Basic
+	@Column(name = "MODIFY_DATE")
+	private Date modifyDate;
+
+	@Basic
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
 
 	@Basic
 	@Column(name = "TOKEN_TYPE")
@@ -31,6 +39,34 @@ public class Token {
 	@Column(name = "TOKEN_STATUS")
 	@Enumerated(EnumType.STRING)
 	private TokenStatus tokenStatus;
+	
+	@Basic
+	@Column(name = "SERVICE_TYPE")
+	@Enumerated(EnumType.STRING)
+	private ServiceType serviceType;
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+	
+	public Date getModifyDate() {
+		return modifyDate;
+	}
+
+	public void setModifyDate(Date modifyDate) {
+		this.modifyDate = modifyDate;
+	}
+	public ServiceType getServiceType() {
+		return serviceType;
+	}
+
+	public void setServiceType(ServiceType serviceType) {
+		this.serviceType = serviceType;
+	}
 
 	public Long getTokenId() {
 		return tokenId;

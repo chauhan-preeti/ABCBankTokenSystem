@@ -11,6 +11,8 @@ import org.test.boot.dao.model.Token;
 import org.test.boot.http.model.BaseResponse;
 import org.test.boot.http.model.TokenRequest;
 import org.test.boot.http.model.TokenResponse;
+import org.test.boot.http.model.TokenStatusUpdateRequest;
+import org.test.boot.http.model.TokenStatusUpdateResponse;
 import org.test.boot.http.service.TokenService;
 
 @RestController
@@ -28,5 +30,10 @@ public class TokenController {
 	@GetMapping("/api/v1/listToken")
 	public BaseResponse<List<Token>> listToken(){
 		return tokenService.listToken();
+	}
+	
+	@PostMapping("/api/v1/updateTokenStatus")
+	public BaseResponse<TokenStatusUpdateResponse> updateTokenStatus(@RequestBody TokenStatusUpdateRequest tokenStatusUpdateRequest){
+		return tokenService.updateToken(tokenStatusUpdateRequest);
 	}
 }
